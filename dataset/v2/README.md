@@ -4,11 +4,15 @@ Smell Pittsburgh is a web-based application that crowdsources smell reports so w
 
 This is the second version of the Smell Pittsburgh dataset from 10/31/2016 (month/day/year) to 1/23/2022, including the following zipcodes in the Pittsburgh region in Pennsylvania, USA:
 
-15006, 15007, 15014, 15015, 15017, 15018, 15020, 15024, 15025, 15028, 15030, 15031, 15032, 15034, 15035, 15037, 15044, 15045, 15046, 15047, 15049, 15051, 15056, 15064, 15065, 15071, 15075, 15076, 15082, 15084, 15086, 15088, 15090, 15091, 15095, 15096, 15101, 15102, 15104, 15106, 15108, 15110, 15112, 15116, 15120, 15122, 15123, 15126, 15127, 15129, 15131, 15132, 15133, 15134, 15135, 15136, 15137, 15139, 15140, 15142, 15143, 15144, 15145, 15146, 15147, 15148, 15201, 15202, 15203, 15204, 15205, 15206, 15207, 15208, 15209, 15210, 15211, 15212, 15213, 15214, 15215, 15216, 15217, 15218, 15219, 15220, 15221, 15222, 15223, 15224, 15225, 15226, 15227, 15228, 15229, 15230, 15231, 15232, 15233, 15234, 15235, 15236, 15237, 15238, 15239, 15240, 15241, 15242, 15243, 15244, 15250, 15251, 15252, 15253, 15254, 15255, 15257, 15258, 15259, 15260, 15261, 15262, 15264, 15265, 15267, 15268, 15270, 15272, 15274, 15275, 15276, 15277, 15278, 15279, 15281, 15282, 15283, 15286, 15289, 15290, 15295
+- 15006, 15007, 15014, 15015, 15017, 15018, 15020, 15024, 15025, 15028, 15030, 15031, 15032, 15034, 15035, 15037, 15044, 15045, 15046, 15047, 15049, 15051, 15056, 15064, 15065, 15071, 15075, 15076, 15082, 15084, 15086, 15088, 15090, 15091, 15095, 15096, 15101, 15102, 15104, 15106, 15108, 15110, 15112, 15116, 15120, 15122, 15123, 15126, 15127, 15129, 15131, 15132, 15133, 15134, 15135, 15136, 15137, 15139, 15140, 15142, 15143, 15144, 15145, 15146, 15147, 15148, 15201, 15202, 15203, 15204, 15205, 15206, 15207, 15208, 15209, 15210, 15211, 15212, 15213, 15214, 15215, 15216, 15217, 15218, 15219, 15220, 15221, 15222, 15223, 15224, 15225, 15226, 15227, 15228, 15229, 15230, 15231, 15232, 15233, 15234, 15235, 15236, 15237, 15238, 15239, 15240, 15241, 15242, 15243, 15244, 15250, 15251, 15252, 15253, 15254, 15255, 15257, 15258, 15259, 15260, 15261, 15262, 15264, 15265, 15267, 15268, 15270, 15272, 15274, 15275, 15276, 15277, 15278, 15279, 15281, 15282, 15283, 15286, 15289, 15290, 15295
 
 This dataset is released under the Creative Commons Zero (CC0) license. Please feel free to use this dataset for your own research. If you found this dataset and the code useful, we would greatly appreciate it if you could cite our paper below.
 
 Yen-Chia Hsu, Jennifer Cross, Paul Dille, Michael Tasota, Beatrice Dias, Randy Sargent, Ting-Hao (Kenneth) Huang, and Illah Nourbakhsh. 2020. Smell Pittsburgh: Engaging Community Citizen Science for Air Quality. ACM Transactions on Interactive Intelligent Systems. 10, 4, Article 32. DOI:https://doi.org/10.1145/3369397. Preprint:https://arxiv.org/pdf/1912.11936.pdf.
+
+One thing to keep in mind is that the above paper only uses a part of the zipcodes, listing below:
+
+- 15221, 15218, 15222, 15219, 15201, 15224, 15213, 15232, 15206, 15208, 15217, 15207, 15260, 15104
 
 A similar previous version [v1 dataset](/dataset/v1) (with a smaller number of zipcodes and time range) was used for the data analysis in the above paper. This version v2 dataset has not been analyzed and remains an open challenge.
 
@@ -33,15 +37,16 @@ The above-mentioned website is a service that collects and visualizes environmen
 
 ![module-3-data.png](esdr-explain.png)
 
-The following list shows the URL with metadata for available air quality and weather variables in the dataset. The variable names (i.e., column names) are provided under the corresponding feed. Notice that some monitoring stations were replaced by others at some time point, so some variables in the dataset represent the combination of multiple channels or feeds, which is explained in the comments in the [Python script for getting data](/py/prediction/getData.py).
+The following list shows the URL with metadata for available air quality and weather variables in the dataset. The variable names (i.e., column names) are provided under the corresponding feed. Notice that some monitoring stations were replaced by others at some time point, so some variables in the dataset represent the combination of multiple channels or feeds, which is explained in the comments in the [Python script for getting data](/py/prediction/getData.py). Here is a [link to the locations of all the sensor stations](https://esdr.cmucreatelab.org/api/v1/feeds?fields=id,name,latitude,longitude&whereOr=id=26,id=59665,id=28,id=23,id=43,id=11067,id=1,id=27,id=29,id=3,id=3506,id=5975,id=3508,id=24) that are listed below. An archived location metadata can be found in the [esdr_metadata.json](/dataset/v2/esdr_metadata.json) file.
 
-- [Feed 26: Lawrenceville ACHD](https://environmentaldata.org/#channels=26.OZONE_PPM,26.PM10B_UG_M3,26.SONICWD_DEG,26.SONICWS_MPH,26.SIGTHETA_DEG,26.PM25T_UG_M3,26.PM25B_UG_M3&time=1543765861.129,1654637511.389&plotHeight=5.000&plotAreaHeight=40.000&showFilters=true&showSettings=true&showResults=true&center=40.40529301325395,-79.93830235610686&zoom=11&search=26+Lawrenceville+ACHD)
+- [Feed 26: Lawrenceville ACHD](https://environmentaldata.org/#channels=26.OZONE_PPM,26.PM10B_UG_M3,26.SONICWD_DEG,26.SONICWS_MPH,26.SIGTHETA_DEG&time=1543765861.129,1654637511.389&cursor=1631224560.721&plotHeight=5.000&plotAreaHeight=40.000&showFilters=true&showSettings=true&showResults=true&center=40.40529301325395,-79.93830235610686&zoom=11&search=26+Lawrenceville+ACHD)
   - 3.feed_26.OZONE_PPM
-  - 3.feed_26.PM25B_UG_M3
   - 3.feed_26.PM10B_UG_M3
   - 3.feed_26.SONICWS_MPH
   - 3.feed_26.SONICWD_DEG
   - 3.feed_26.SIGTHETA_DEG
+- Combination of the variables from [Feed 26: Lawrenceville ACHD](https://environmentaldata.org/#channels=26.PM25T_UG_M3,26.PM25B_UG_M3&time=1528914977.244,1676029685.660&plotHeight=5.000&plotAreaHeight=40.000&showFilters=true&showSettings=true&showResults=true&center=40.444856858961735,-79.91911821671611&zoom=12&search=26+Lawrenceville+ACHD) and [Feed 59665: Pittsburgh ACHD](https://environmentaldata.org/#channels=59665.PM25_640_UG_M3&time=1528914977.244,1676029685.660&cursor=1555772430.824&plotHeight=5.000&plotAreaHeight=40.000&showFilters=true&showSettings=true&showResults=true&center=40.456071859273884,-79.92718630143291&zoom=12&search=59665+Pittsburgh+ACHD)
+  - 3.feed_26.PM25B_UG_M3..3.feed_26.PM25T_UG_M3..3.feed_59665.PM25_640_UG_M3
 - [Feed 28: Liberty ACHD](https://environmentaldata.org/#channels=28.H2S_PPM,28.SO2_PPM,28.SIGTHETA_DEG,28.SONICWD_DEG,28.SONICWS_MPH&time=1642138641.499,1647012906.580&cursor=1644284699.505&plotHeight=5.000&plotAreaHeight=40.000&showFilters=true&showSettings=true&showResults=true&center=40.40529301325395,-79.93830235610686&zoom=11&search=28+Liberty+ACHD)
   - 3.feed_28.H2S_PPM
   - 3.feed_28.SO2_PPM
@@ -91,7 +96,7 @@ The following list shows the URL with metadata for available air quality and wea
 - [Feed 24: Glassport High Street ACHD](https://environmentaldata.org/#channels=24.PM10_UG_M3&time=1349500933.050,1681643166.416&plotHeight=5.000&plotAreaHeight=40.000&showFilters=true&showSettings=true&showResults=true&center=40.40529301325395,-79.93830235610686&zoom=11&search=24+Glassport+High+Street+ACHD)
   - 3.feed_24.PM10_UG_M3
 
-Below are explanations about the suffix of the variable names in the above list:
+Below are explanations about the [suffix of the variable names](Acronyms_for_the_Daily_Summary_Report.pdf) in the above list. There is also an [online documentation of the air quality data](https://tools.wprdc.org/pages/air-quality-docs.html).
 
 - SO2_PPM: sulfur dioxide in ppm (parts per million)
 - SO2_PPB: sulfur dioxide in ppb (parts per billion)
@@ -105,6 +110,7 @@ Below are explanations about the suffix of the variable names in the above list:
 - PM10B_UG_M3: same as PM10_UG_M3
 - PM25_UG_M3: fine particulate matter (PM2.5) in micrograms per cubic meter
 - PM25T_UG_M3: same as PM25_UG_M3
+- PM25_640_UG_M3: same as PM25_UG_M3
 - PM2_5: same as PM25_UG_M3
 - PM25B_UG_M3: same as PM25_UG_M3
 - NO_PPB: nitric oxide in ppb
@@ -113,6 +119,3 @@ Below are explanations about the suffix of the variable names in the above list:
 - NOY_PPB: sum of all oxidized atmospheric odd-nitrogen species in ppb
 - OZONE_PPM: ozone (or trioxygen) in ppm
 - OZONE: same as OZONE_PPM
-
-## Important notes
-- The Lawrenceville ACHD sensor (Feed ID 26) does not have PM2.5 data since the end of year 2020, which means that file "esdr_raw/Feed_26_Lawrenceville_ACHD.csv" has a lot of missing data on year 2021 and 2022.

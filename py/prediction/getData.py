@@ -36,16 +36,20 @@ def getData(out_p=None, start_dt=None, end_dt=None, region_setting=0, logger=Non
     # Feed 5975: Parkway East AirNow
     # Feed 3508: South Allegheny High School AirNow
     # Feed 24: Glassport High Street ACHD
+    # Feed 11067: Parkway East Near Road ACHD
+    # Feed 59665: Pittsburgh ACHD
     esdr_source_names = [
-        "Feed_1_Avalon_ACHD_PM",
-        "Feed_1_Avalon_ACHD_others",
+        "Feed_1_Avalon_ACHD_PM25",
+        "Feed_1_Avalon_ACHD",
         "Feed_26_Lawrenceville_ACHD",
-        "Feed_26_Lawrenceville_ACHD_PM25",
+        "Feed_26_and_Feed_59665_Lawrenceville_ACHD_PM25",
+        "Feed_26_and_Feed_59665_Lawrenceville_ACHD_PM10",
         "Feed_27_Lawrenceville_2_ACHD",
         "Feed_28_Liberty_ACHD",
         "Feed_29_Liberty_2_ACHD_PM10",
         "Feed_29_Liberty_2_ACHD_PM25",
         "Feed_3_North_Braddock_ACHD",
+        "Feed_3_North_Braddock_ACHD_PM10",
         "Feed_23_Flag_Plaza_ACHD_CO",
         "Feed_23_Flag_Plaza_ACHD_PM10",
         "Feed_43_and_Feed_11067_Parkway_East_ACHD",
@@ -59,13 +63,19 @@ def getData(out_p=None, start_dt=None, end_dt=None, region_setting=0, logger=Non
     esdr_source = [
         [
             {"feed": "1", "channel": "PM25B_UG_M3"},
-            {"feed": "1", "channel": "PM25T_UG_M3"}
+            {"feed": "1", "channel": "PM25T_UG_M3"},
+            {"feed": "1", "channel": "PM25_640_UG_M3"}
         ],
         [{"feed": "1", "channel": "SO2_PPM,H2S_PPM,SIGTHETA_DEG,SONICWD_DEG,SONICWS_MPH"}],
-        [{"feed": "26", "channel": "OZONE_PPM,PM10B_UG_M3,SONICWS_MPH,SONICWD_DEG,SIGTHETA_DEG"}],
+        [{"feed": "26", "channel": "OZONE_PPM,SONICWS_MPH,SONICWD_DEG,SIGTHETA_DEG"}],
         [
             {"feed": "26", "channel": "PM25B_UG_M3"},
-            {"feed": "26", "channel": "PM25T_UG_M3"}
+            {"feed": "26", "channel": "PM25T_UG_M3"},
+            {"feed": "59665", "channel": "PM25_640_UG_M3"}
+        ],
+        [
+            {"feed": "26", "channel": "PM10B_UG_M3"},
+            {"feed": "59665", "channel": "PM10_640_UG_M3"}
         ],
         [{"feed": "27", "channel": "NO_PPB,NOY_PPB,CO_PPB,SO2_PPB"}],
         [{"feed": "28", "channel": "H2S_PPM,SO2_PPM,SIGTHETA_DEG,SONICWD_DEG,SONICWS_MPH"}],
@@ -74,7 +84,11 @@ def getData(out_p=None, start_dt=None, end_dt=None, region_setting=0, logger=Non
             {"feed": "29", "channel": "PM25_UG_M3"},
             {"feed": "29", "channel": "PM25T_UG_M3"}
         ],
-        [{"feed": "3", "channel": "SO2_PPM,SONICWD_DEG,SONICWS_MPH,SIGTHETA_DEG,PM10B_UG_M3"}],
+        [{"feed": "3", "channel": "SO2_PPM,SONICWD_DEG,SONICWS_MPH,SIGTHETA_DEG"}],
+        [
+            {"feed": "3", "channel": "PM10B_UG_M3"},
+            {"feed": "3", "channel": "PM10_640_UG_M3"}
+        ],
         [
             {"feed": "23", "channel": "CO_PPM"},
             {"feed": "23", "channel": "CO_PPB", "factor": 0.001}
